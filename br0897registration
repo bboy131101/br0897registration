@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+    
+</head>
+<body>
+    <header>
+        <h1>Student Registration</h1>
+    </header>
+    <form id="studentRegistrationForm">
+        <label for="studentName">Name:</label>
+        <input type="text" id="studentName" required>
+        <label for="studentEmail">Email:</label>
+        <input type="email" id="studentEmail" required>
+        <label for="studentPassword">Password:</label>
+        <input type="password" id="studentPassword" required>
+        <button type="submit">Register</button>
+    </form>
+    <script>
+        document.getElementById("studentRegistrationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const name = document.getElementById("studentName").value;
+            const email = document.getElementById("studentEmail").value;
+            const password = document.getElementById("studentPassword").value;
+
+            if (!name || !email || !password) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+
+             if (password.length < 8) {
+            alert("Password must be at least 8 characters long.");
+            return;
+            }
+
+            alert("Student Registration Successful!");
+             window.location.href = 'index.html';
+        });
+    </script>
+
+     <footer>
+        <p>&copy; 2024 Library Management System. <a href="index.html">Back to Home</a></p>
+    </footer>
+</body>
+</html>
